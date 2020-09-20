@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Upload your Form-16 PDF</h1>
+
+<form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    F-16 PDF:
+    <br/>
+    <input type="file" name="icon" />
+    <br/>
+    <br/>
+    <input type="submit" value="Upload PDF" class="btn btn-primary"/>
+</form>
+
+{% if error%}
+<br/>
+{{ error }}
+<br/>
+<br/>
+{% endif %}
+
+
+
+{% endblock %}
